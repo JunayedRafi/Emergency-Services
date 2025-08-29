@@ -39,17 +39,17 @@ for (const callButton of callButtons) {
         strCoins.innerText = totalCoin
 
         const newCallHistory = {
-            name: emergencyName.innerText,
-            number: emergencyNum.innerText,
+            name: emergencyName,
+            number: emergencyNum,
             time: new Date().toLocaleTimeString()
         }
         callHistory.push(newCallHistory)
         const historyContainer = document.getElementById("callHistoryContainer")
         const section = document.createElement("div")
         section.innerHTML = `
-        <div class="flex bg-[#FAFAFA] justify-between p-3 md:p-4 rounded-lg">
+        <div class="flex bg-[#FAFAFA] justify-between p-3 md:p-4 rounded-lg gap-1">
             <div>
-                <p class="font-bold text-base md:text-lg inter text-black">${newCallHistory.name}</p>
+                <p class="font-bold text-base inter text-black">${newCallHistory.name}</p>
                 <p class="text-base md:text-lg hind-madurai text-[#5C5C5C]">${newCallHistory.number}</p>
             </div>
             <div class="content-center">
@@ -60,3 +60,8 @@ for (const callButton of callButtons) {
         historyContainer.appendChild(section)
     })
 }
+
+document.getElementById("clearButton").addEventListener("click", function () {
+    const historyContainer = document.getElementById("callHistoryContainer");
+    historyContainer.innerHTML = ''
+})
